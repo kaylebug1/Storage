@@ -1,5 +1,6 @@
 package com.example.kayle.storage;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.advanceButton).setOnClickListener(new Advance());
         findViewById(R.id.saveButton).setOnClickListener(new SaveCount());
+
+        SharedPreferences savedValue = getSharedPreferences("MyPrefsFile", 0);
+        int savedInt = savedValue.getInt("intPref", 0);
+        t.setText(savedInt);
     }
 
     @Override
@@ -59,8 +64,11 @@ public class MainActivity extends AppCompatActivity {
     private class SaveCount implements Runnable,View.OnClickListener {
         @Override
         public void run() {
+            SharedPreferences toBeSaved = getSharedPreferences("MyPrefsFile", 0);
+            SharedPreferences.Editor editor = toBeSaved.edit();
+            editor.putInt("intPref", Integer.parseInt(t.getText().toString()));
 
-
+            editor.commit();
         }
 
         @Override
