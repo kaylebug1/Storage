@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         t = (TextView) findViewById(R.id.textBox);
-        t.setText(0);
+        t.setText("0");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
 
-
         }
 
         @Override
@@ -102,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
             int num = Integer.parseInt(t.getText().toString());
             num++;
             t.setText(num);
-
         }
 
         @Override
