@@ -2,6 +2,7 @@ package com.example.kayle.storage;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,14 +14,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    TextView t;
+    Handler mHandle = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        TextView t = (TextView) findViewById(R.id.textBox);
+        t = (TextView) findViewById(R.id.textBox);
         t.setText("0");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -56,29 +58,27 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private static class SaveCount implements Runnable,View.OnClickListener {
+    private class SaveCount implements Runnable,View.OnClickListener {
+        @Override
+        public void run() {
+            System.out.println("I hate money");
+        }
 
         @Override
         public void onClick(View v){
-            System.out.println("I hate money");
+            mHandle.post(this);
         }
-        @Override
-        public void run() {
-
-        }
-
-
     }
 
-    private static class Advance implements Runnable, View.OnClickListener {
+    private class Advance implements Runnable, View.OnClickListener {
         @Override
         public void run(){
-
+            System.out.println("I love mommy");
         }
 
         @Override
         public void onClick(View v) {
-            System.out.println("I love money");
+            mHandle.post(this);
         }
     }
 
