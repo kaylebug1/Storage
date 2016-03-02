@@ -1,16 +1,14 @@
 package com.example.kayle.storage;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         t = (TextView) findViewById(R.id.textBox);
-        t.setText("0");
+        t.setText(0);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
     private class SaveCount implements Runnable,View.OnClickListener {
         @Override
         public void run() {
-            System.out.println("I hate money");
+
+
         }
 
         @Override
@@ -100,7 +99,10 @@ public class MainActivity extends AppCompatActivity {
     private class Advance implements Runnable, View.OnClickListener {
         @Override
         public void run(){
-            System.out.println("I love mommy");
+            int num = Integer.parseInt(t.getText().toString());
+            num++;
+            t.setText(num);
+
         }
 
         @Override
