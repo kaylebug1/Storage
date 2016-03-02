@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences savedValue = getSharedPreferences("MyPrefsFile", 0);
         int savedInt = savedValue.getInt("intPref", 0);
-        t.setText(savedInt);
+        t.setText(String.valueOf(savedInt));
     }
 
     /**
