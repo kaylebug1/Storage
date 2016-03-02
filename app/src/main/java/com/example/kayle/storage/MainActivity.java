@@ -1,5 +1,6 @@
 package com.example.kayle.storage;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        System.out.println("I LIKE FOOD");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        findViewById(R.id.advanceButton).setOnClickListener(new Advance());
+        findViewById(R.id.saveButton).setOnClickListener(new SaveCount());
     }
 
     @Override
@@ -50,17 +53,29 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class SaveCount implements Runnable {
+    private static class SaveCount implements Runnable,View.OnClickListener {
+
+        @Override
+        public void onClick(View v){
+            System.out.println("I hate money");
+        }
         @Override
         public void run() {
 
         }
+
+
     }
 
-    private class Advance implements Runnable {
+    private static class Advance implements Runnable, View.OnClickListener {
         @Override
-        public void run() {
+        public void run(){
 
+        }
+
+        @Override
+        public void onClick(View v) {
+            System.out.println("I love money");
         }
     }
 
