@@ -49,4 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private class SaveCount implements Runnable {
+        @Override
+        public void run() {
+
+        }
+    }
+
+    private class Advance implements Runnable {
+        @Override
+        public void run() {
+
+        }
+    }
+
 }
