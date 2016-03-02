@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         public void run(){
             int num = Integer.parseInt(t.getText().toString());
             num++;
-            t.setText(num);
+            t.setText(String.valueOf(num));
         }
 
         @Override
